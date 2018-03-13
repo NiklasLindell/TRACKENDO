@@ -79,6 +79,7 @@
 		4F595D242057EC3B00E3DB0A /* TRACKENDO */ = {
 			isa = PBXGroup;
 			children = (
+				4FD2D13F2057EE60004CAF36 /* README.md */,
 				4F595D252057EC3B00E3DB0A /* AppDelegate.swift */,
 				4F595D272057EC3B00E3DB0A /* ViewController.swift */,
 				4F595D292057EC3B00E3DB0A /* Main.storyboard */,
@@ -94,7 +95,6 @@
 			children = (
 				4F595D3A2057EC3B00E3DB0A /* TRACKENDOTests.swift */,
 				4F595D3C2057EC3B00E3DB0A /* Info.plist */,
-				4FD2D13F2057EE60004CAF36 /* README.md */,
 			);
 			path = TRACKENDOTests;
 			sourceTree = "<group>";
