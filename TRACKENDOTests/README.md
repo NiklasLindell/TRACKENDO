@@ -1,3 +1,8 @@
+
+
+![mockup](https://raw.githubusercontent.com/matildadahlberg/TRACKENDO/master/MockupBild.png)
+
+
 Appidé - TRACKENDO (Track = Spår som man kan springa i, men även att man håller koll "track" på något. Endo = är en kortare variant av endorfiner, endorfiner är det kroppen tillverkar när man tränar)
 
 Idé: Just nu finns det massa träningsappar/hälsoappar ute på marknaden, men de flesta fokuserar på HUR och VAD man ska träna. Det är alltså mer riktat till nybörjare. Vår app är mer riktat till människor som redan tränar och vet hur och vad man ska göra.
