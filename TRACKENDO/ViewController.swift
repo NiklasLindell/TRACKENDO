@@ -13,49 +13,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var ref: DatabaseReference!
-    var items: [Item] = []
+    var training: [Workout] = []
     let cellReusableId = "cellReusableIdentifier"
     
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func addItem(_ sender: UIBarButtonItem) {
-        let paron = Item(name: "päron")
-        
-        ref.child("items").child(paron.name).setValue(paron.toAnyObject())
-    }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         
-//        ref.child("users").child("001").setValue(["username":"niklas"])
-//        ref.child("users").child("002").setValue(["username":"matilda"])
-//        ref.child("users").child("003").setValue(["username":"sarah"])
-//
-
-//        let mjol = Item(name: "mjöl")
-//        let morot = Item(name: "morötter")
-//        let ost = Item(name: "ost")
-        
-//        ref.child("items").child(mjol.name).setValue(mjol.toAnyObject())
-//        ref.child("items").child(morot.name).setValue(morot.toAnyObject())
-//       ref.child("items").child(ost.name).setValue(ost.toAnyObject())
-//
-        ref.child("items").observe(.value, with: {(snapshot) in
+        ref.child("training").observe(.value, with: {(snapshot) in
             
-            var newItems:[Item] = []
+            var newTraining:[Workout] = []
             
             
-            for item in snapshot.children {
-                let listItem = Item(snapshot: item as! DataSnapshot)
-                newItems.append(listItem)
-                print(listItem.name)
+            for training in snapshot.children {
+                let list = Workout(snapshot: training as! DataSnapshot)
+                newTraining.append(list)
+                print(list.title)
             }
             
-            self.items = newItems
+            self.training = newTraining
             self.tableView.reloadData()
             
         })
@@ -63,14 +45,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return training.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReusableId, for: indexPath)
         
         if let label = cell.textLabel {
-            label.text = items[indexPath.row].name
+            label.text = training[indexPath.row].title
         }
         
         return cell
