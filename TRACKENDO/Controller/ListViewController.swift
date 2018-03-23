@@ -9,20 +9,21 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     
     var ref: DatabaseReference!
     var training: [Workout] = []
+    
     let cellReusableId = "cellReusableIdentifier"
     
 
     @IBOutlet weak var tableView: UITableView!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         ref = Database.database().reference()
         
@@ -31,11 +32,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             var newTraining:[Workout] = []
             
             
-            for training in snapshot.children {
-                let list = Workout(snapshot: training as! DataSnapshot)
-                newTraining.append(list)
-                print(list.title)
-            }
             
             self.training = newTraining
             self.tableView.reloadData()
@@ -49,7 +45,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReusableId, for: indexPath)
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReusableId", for: indexPath)
         
         if let label = cell.textLabel {
             label.text = training[indexPath.row].title
@@ -58,6 +56,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
+    
+    
+    
+ 
+    
+    
+    
     
     
     
