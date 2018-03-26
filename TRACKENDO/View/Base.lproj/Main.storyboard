@@ -166,6 +166,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="BzR-gt-uwI" id="VUp-Sa-aDN"/>
                         <outlet property="passwordTextField" destination="AcD-B5-BBt" id="Hoa-x5-CSx"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToList" id="SeD-aE-1gq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jwv-p0-sFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,11 +214,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="3es-cy-D1w" id="gqF-k6-paN"/>
                         <outlet property="passwordTextField" destination="cY9-UH-kmA" id="1Zt-pa-KKS"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToList" id="YpI-zV-nxO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1f-rZ-7ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.8" y="-964.76761619190415"/>
+            <point key="canvasLocation" x="1673" y="-933"/>
         </scene>
         <!--Log Out View Controller-->
         <scene sceneID="2lC-6A-0xJ">
@@ -289,6 +291,9 @@
                         <viewLayoutGuide key="safeArea" id="kaL-ne-5FM"/>
                     </view>
                     <navigationItem key="navigationItem" id="G8G-jS-ATp"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToList" id="ffi-Rh-eOR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFU-wF-wiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -406,6 +411,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GN6-e2-h1i"/>
+        <segue reference="YpI-zV-nxO"/>
     </inferredMetricsTieBreakers>
 </document>
