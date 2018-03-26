@@ -274,7 +274,7 @@
                                     <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="U1a-Ly-HcS" kind="show" identifier="goToSignUp" id="5fB-Ov-fM3"/>
+                                    <segue destination="U1a-Ly-HcS" kind="show" id="Er9-TD-iud"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TRACKENDO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHX-vk-Jhv">
@@ -406,6 +406,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PqS-Fi-3Lp"/>
+        <segue reference="GN6-e2-h1i"/>
     </inferredMetricsTieBreakers>
 </document>
