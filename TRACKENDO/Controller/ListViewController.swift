@@ -1,77 +1,52 @@
-//
-//  ViewController.swift
-//  TRACKENDO
-//
-//  Created by Niklas Lindell on 2018-03-13.
-//  Copyright © 2018 Niklas Lindell. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
-    var ref: DatabaseReference!
-    var training: [Workout] = []
-    
-    let cellReusableId = "cellReusableIdentifier"
-    
+//    var ref: DatabaseReference!
+//    var training: [Workout] = []
+//
+//    let cellID = "cellIdentifier"
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        
-        ref = Database.database().reference()
-        
-        ref.child("training").observe(.value, with: {(snapshot) in
-            
-            var newTraining:[Workout] = []
-            
-            
-            
-            self.training = newTraining
-            self.tableView.reloadData()
-            
-        })
-      
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return training.count
+        
+        if let workout = workoutList {
+            return workout.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReusableId", for: indexPath)
-        
-        if let label = cell.textLabel {
-            label.text = training[indexPath.row].title
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        if let workout = workoutList {
+            cell.textLabel?.text = workout[indexPath.row]
         }
-        
         return cell
     }
-
     
-    
-    
- 
-    
-    
-    
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            workoutList?.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
-
-
 }
 
