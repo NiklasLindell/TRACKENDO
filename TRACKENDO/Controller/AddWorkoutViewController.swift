@@ -2,7 +2,7 @@ import UIKit
 
 class AddWorkoutViewController: UIViewController {
     
-    let segueID = "goGoTableView"
+    let segueID = "goToTableView"
     var workoutList : [Workout]?
     
     @IBOutlet weak var titleTextField: UITextField!
