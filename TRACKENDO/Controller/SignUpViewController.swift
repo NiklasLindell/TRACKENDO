@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class SignUpViewController: UIViewController{
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -27,8 +28,7 @@ class SignUpViewController: UIViewController{
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+       Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
                 print(error!)
             }
