@@ -32,6 +32,8 @@ class LogInController: UIViewController {
         
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
+                SVProgressHUD.dismiss()
+                self.createAlertLogIn(title: "Try again!", message: "Wrong Password.")
                 print(error!)
             }
             else {
@@ -40,6 +42,18 @@ class LogInController: UIViewController {
                 self.performSegue(withIdentifier: "goToList", sender: self)
             }
         }
+    }
+    
+    func createAlertLogIn(title: String, message:String ){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
 }
