@@ -1,14 +1,9 @@
-//
-//  AddWorkoutViewController.swift
-//  TRACKENDO
-//
-//  Created by Niklas Lindell on 2018-03-24.
-//  Copyright © 2018 Niklas Lindell. All rights reserved.
-//
-
 import UIKit
 
 class AddWorkoutViewController: UIViewController {
+    
+    let segueID = "goGoTableView"
+    var workoutList : [Workout]?
     
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -21,24 +16,41 @@ class AddWorkoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     
 
 
     @IBAction func savePressed(_ sender: UIButton) {
-        if (titleTextField.text != nil) && titleTextField.text != "" {
-            workoutList?.append(titleTextField.text!)
-        }
-        if (exerciseTextField.text != nil) && exerciseTextField.text != "" {
-            workoutList?.append(exerciseTextField.text!)
-        }
-        if (setTextField.text != nil) && setTextField.text != "" {
-            workoutList?.append(setTextField.text!)
-        }
-        if (repsTextField.text != nil) && repsTextField.text != "" {
-            workoutList?.append(repsTextField.text!)
+        
+        let workOut = Workout(title: titleTextField.text!, exercise: exerciseTextField.text! , reps: Int(repsTextField.text!)!, set: Int(setTextField.text!)!)
+        
+        createAlertAdd(title: "Saved", message: "Your workout have been saved")
+      
+        workoutList?.append(workOut)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == segueID) {
+            let destination = segue.destination as! ListViewController
+            destination.workoutList = self.workoutList
         }
     }
+    
+    func createAlertAdd(title: String, message:String ){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-var workoutList : [String]?
+
 
 func saveData(workoutList : [String]) {
     UserDefaults.standard.set(workoutList, forKey: "workoutList")

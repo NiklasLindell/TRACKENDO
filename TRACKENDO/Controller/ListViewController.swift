@@ -3,7 +3,8 @@ import Firebase
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
+    let segueID = "goToAdd"
+    var workoutList : [Workout]?
 //    var ref: DatabaseReference!
 //    var training: [Workout] = []
 //
@@ -16,6 +17,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        if (workoutList == nil) {
+            workoutList = []
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,7 +42,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         if let workout = workoutList {
-            cell.textLabel?.text = workout[indexPath.row]
+            cell.textLabel?.text = workout[indexPath.row].title
         }
         return cell
     }
@@ -50,7 +56,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(workoutList?[indexPath.row])
         
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
@@ -61,7 +66,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == segueID) {
+            let destination = segue.destination as! AddWorkoutViewController
+            destination.workoutList = self.workoutList
+        }
+    }
     
     
     
