@@ -16,10 +16,11 @@ class LogInController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func ForgotPW(_ sender: Any) {
-        resetPassword(email: emailTextField.text!)
-    }
+    @IBOutlet weak var resetEmailPW: UITextField!
     
+    @IBAction func resetPW(_ sender: Any) {
+        resetPassword(email: resetEmailPW.text!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
