@@ -16,6 +16,12 @@ class LogInController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var resetEmailPW: UITextField!
+    
+    @IBAction func resetPW(_ sender: Any) {
+        resetPassword(email: resetEmailPW.text!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,6 +60,16 @@ class LogInController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    func resetPassword(email: String){
+        Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+            if error == nil{
+                self.createAlertLogIn(title: "Reset Password!", message: "An email with information on how to reset your password has been sent to you.")
+            } else{
+                print(error!.localizedDescription)
+            }
+        })
     }
     
 }
