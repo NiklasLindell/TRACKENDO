@@ -16,7 +16,9 @@ class LogInController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-   
+    @IBAction func ForgotPW(_ sender: Any) {
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
