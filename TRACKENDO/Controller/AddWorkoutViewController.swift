@@ -22,11 +22,22 @@ class AddWorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
+
 
     @IBAction func savePressed(_ sender: UIButton) {
         if (titleTextField.text != nil) && titleTextField.text != "" {
             workoutList?.append(titleTextField.text!)
-            titleTextField.text = ""
+        }
+        if (exerciseTextField.text != nil) && exerciseTextField.text != "" {
+            workoutList?.append(exerciseTextField.text!)
+        }
+        if (setTextField.text != nil) && setTextField.text != "" {
+            workoutList?.append(setTextField.text!)
+        }
+        if (repsTextField.text != nil) && repsTextField.text != "" {
+            workoutList?.append(repsTextField.text!)
         }
     }
     
