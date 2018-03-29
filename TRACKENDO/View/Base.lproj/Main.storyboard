@@ -410,6 +410,9 @@
                                 <state key="normal" title="Add new WO">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addWoPressed:" destination="rXz-eA-wRK" eventType="touchUpInside" id="ZBf-Th-c0r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18S-v4-SZq">
                                 <rect key="frame" x="0.0" y="559" width="375" height="64"/>
@@ -476,9 +479,33 @@
                         <viewLayoutGuide key="safeArea" id="gVy-uI-9ta"/>
                     </view>
                     <connections>
+                        <outlet property="exTextField1" destination="gzt-HX-qnC" id="6Z4-xC-bip"/>
+                        <outlet property="exTextField2" destination="iym-ji-rLg" id="iNl-ek-C40"/>
+                        <outlet property="exTextField3" destination="xpH-hP-zRt" id="UMx-ah-mox"/>
+                        <outlet property="exTextField4" destination="FXI-8H-nqo" id="zVJ-4g-Nue"/>
+                        <outlet property="exTextField5" destination="fcw-CQ-gc9" id="MW6-vk-n2M"/>
+                        <outlet property="exTextField6" destination="Yy5-n8-Mg8" id="ErS-gy-miH"/>
+                        <outlet property="exTextField7" destination="6Vd-jm-uxc" id="psX-hg-ly5"/>
+                        <outlet property="exTextField8" destination="g6N-xZ-Ila" id="YXw-6b-7kD"/>
                         <outlet property="exerciseTextField" destination="RlW-2s-pgQ" id="P0i-CG-J27"/>
                         <outlet property="repsTextField" destination="Yte-si-IMO" id="p6M-Qb-KuZ"/>
+                        <outlet property="repsTextField1" destination="b5D-De-y3P" id="e8y-Ww-jb4"/>
+                        <outlet property="repsTextField2" destination="PhG-eP-nkJ" id="CrR-VU-DqO"/>
+                        <outlet property="repsTextField3" destination="yxG-cJ-EFe" id="nQs-na-pXI"/>
+                        <outlet property="repsTextField4" destination="EQ2-t9-1XB" id="HbV-HL-8v9"/>
+                        <outlet property="repsTextField5" destination="x5o-l0-xgU" id="gdy-UI-vbp"/>
+                        <outlet property="repsTextField6" destination="vDZ-ip-eyT" id="f1l-k9-L00"/>
+                        <outlet property="repsTextField7" destination="kr7-rU-xCq" id="277-WZ-W0R"/>
+                        <outlet property="repsTextField8" destination="e3G-jE-fJ1" id="rm6-UB-T75"/>
                         <outlet property="setTextField" destination="GZq-AE-xmC" id="O4j-Tv-gqo"/>
+                        <outlet property="setTextField1" destination="rB7-mh-oMl" id="zXs-ed-cq0"/>
+                        <outlet property="setTextField2" destination="czf-3m-ONR" id="Mlc-9Q-Zcm"/>
+                        <outlet property="setTextField3" destination="K1Y-gs-mOQ" id="G1b-vA-hGf"/>
+                        <outlet property="setTextField4" destination="CtM-VQ-liR" id="e0l-gL-shf"/>
+                        <outlet property="setTextField5" destination="hsj-DA-YVc" id="l7b-4X-a0U"/>
+                        <outlet property="setTextField6" destination="UK8-9o-TWr" id="XHZ-ed-ncN"/>
+                        <outlet property="setTextField7" destination="5a3-64-Ta7" id="vm4-Kv-vlq"/>
+                        <outlet property="setTextField8" destination="1l0-S2-sv5" id="VDW-x3-sE0"/>
                         <outlet property="titleTextField" destination="dbB-Pa-CPy" id="IGT-sV-rl0"/>
                     </connections>
                 </viewController>
