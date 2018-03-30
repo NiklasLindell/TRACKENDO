@@ -5,6 +5,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let segueID = "goToAdd"
     var workoutList : [Workout]?
+    
 //    var ref: DatabaseReference!
 //    var training: [Workout] = []
 //
@@ -31,6 +32,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
     }
     
+    // hur många rader det ska vara i tableviewn
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let workout = workoutList {
@@ -40,6 +42,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // vad som ska synas i varje rad i tableviewn
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
@@ -49,6 +52,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    // gör så att man kan radera en rad i tableviewn genom att swipa med fingret
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -57,6 +61,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // lägger till ett checkmark vid högra sidan i tableviewn om man klickar på den och tar bort om man klickar igen
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
@@ -68,6 +73,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // skickar över arrayen från denna sida till add-sidan så att dem är samma
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == segueID) {
             let destination = segue.destination as! AddWorkoutViewController
