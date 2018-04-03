@@ -109,6 +109,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -758,7 +760,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPU-Cx-0aQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="-1437"/>
+            <point key="canvasLocation" x="209" y="-1437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W2c-sA-k2m">
