@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let segueID = "goToAdd"
     var workoutList : [Workout]?
@@ -13,23 +13,22 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+   
         if (workoutList == nil) {
             workoutList = []
         }
+        tableView?.reloadData()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     // hur många rader det ska vara i tableviewn
@@ -73,16 +72,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // skickar över arrayen från denna sida till add-sidan så att dem är samma
+//     skickar över listan från denna sida till add-sidan så att dem är samma
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == segueID) {
             let destination = segue.destination as! AddWorkoutViewController
             destination.workoutList = self.workoutList
         }
     }
-    
-    
-    
     
 }
 
