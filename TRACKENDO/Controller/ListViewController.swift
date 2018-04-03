@@ -5,7 +5,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let segueID = "goToAdd"
     var workoutList : [Workout]?
-    let cellID = "cellIdentifier"
+    
+    var ref: DatabaseReference!
+    var training: [Workout] = []
+
+   let cellID = "cellIdentifier"
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,7 +44,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     // vad som ska synas i varje rad i tableviewn
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: cellID)
         if let workout = workoutList {
             cell.textLabel?.text = workout[indexPath.row].title
         }
